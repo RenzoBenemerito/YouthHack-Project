@@ -30,10 +30,10 @@ def createAccount():
         getpassword = request.form['password']
         conn=mysql.connect()
         cursor=conn.cursor()
-        cursor.execute("SELECT COUNT(user_username) FROM user_account WHERE user_username='{}' AND user_password='{}'"
+        cursor.execute("SELECT user_username FROM user_account WHERE user_username='{}' AND user_password='{}'"
                        .format(getusername,getpassword))
         data=cursor.fetchone()
-        if(len(data)==1):
+        if(len(data)!=1):
             session['logged_in']=True
             session['user']=getusername
             return redirect("/")
