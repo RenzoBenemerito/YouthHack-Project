@@ -38,7 +38,12 @@ def registerSpeaker():
 
 @seek.route('/registerOrg',methods=['POST'])
 def registerOrg():
-
+    getusername = request.form['username']
+    getpassword = request.form['password']
+    getemail = request.form['email']
+    getcontact = request.form['contact']
+    getorgname = request.form['orgname']
+    return "Hello!"
 
 @seek.route('/loginAccount',methods=['POST'])
 def createAccount():
