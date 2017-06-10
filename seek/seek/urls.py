@@ -16,7 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+# Additions
+from django.conf.urls import include
+from loginApp import views
 
+urlpatterns = [
+    # Admin url - redirects to admin page
+    url(r'^admin/', admin.site.urls),
+    # Landing Page - redirects to landing page
+    url(r'^$',views.index,name='index'),
+    # redirects to urls of login
+    url(r'^loginApp/',include('loginApp.urls'))
 ]
