@@ -10,9 +10,9 @@
 <body>
     <div class="container">
     <h1>Login page</h1>
-    <form class="form-group" action="" method="POST">
+    <form action="" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_p }} 
         <input type="submit" class=btn btn-primary" value"Submit>
     </form>
     
