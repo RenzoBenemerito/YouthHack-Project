@@ -21,7 +21,7 @@ def main():
 
 @seek.route('/login')
 def login():
-    return render_template('')
+    return render_template('index.html')
 
 
 
@@ -36,3 +36,6 @@ def createAccount():
         pass
     else:
         request.method(401)
+
+if __name__ == '__main__':
+    seek.run(debug=True)
