@@ -31,5 +31,4 @@ class user_organization(models.Model):
     def __str__(self):
         return self.user_id
 
-
 # Add the remaining tables
