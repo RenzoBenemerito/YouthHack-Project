@@ -21,7 +21,11 @@
 		<link rel="stylesheet" href="static/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="static/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="static/css/ie9.css" /><![endif]-->
-		
+		<style>
+			form input {
+				color:black;
+			}
+		</style>
 	</head>
 	<body class="landing">
 
@@ -185,11 +189,11 @@
 							</div>
 							<div class="modal-body container-fluid">
 								<form action="" method="POST">
-									<label class="labels" for="username">Username</label><input type="text" class="inputs" required>
-									<label class="labels" for="password">password</label><input type="password" class="inputs" required>
-									<label class="labels" for="email">email</label><input type="email" class="inputs" required>
-									<label class="labels" for="cn">Contact Number</label><input type="number" class="inputs" required>
-									<label class="labels" for="">Organization Name</label><input type="text" class="inputs" required>
+									<label class="labels" for="username">Username</label><input id="username" type="text" class="inputs" required>
+									<label class="labels" for="password">password</label><input id="password" type="password" class="inputs" required>
+									<label class="labels" for="email">email</label><input id="email" type="email" class="inputs" required>
+									<label class="labels" for="cn">Contact Number</label><input id="cn" type="number" class="inputs" required>
+									<label class="labels" for="">Organization Name</label><input id="" type="text" class="inputs" required>
 									<label class="labels" for=""></label><input type="text" class="inputs" required>
 									<br>	
 									<center>
@@ -212,19 +216,19 @@
 								<h4 class="modal-title" style="color:black !important">Sign-Up</h4>
 							</div>
 							<div class="modal-body container-fluid">
-								<form action="" method="POST">
-									<label class="labels" for="fName">First Name</label><input type="text" class="inputs" required>
-									<label class="labels" for="password">Last Name</label><input type="text" class="inputs" required>
-									<label class="labels" for="password">Username</label><input type="text" class="inputs" required>
-									<label class="labels" for="password">Password</label><input type="password" class="inputs" required>
-									<label class="labels" for="email">Age</label><input type="number" class="inputs" required>
-									<label class="labels" for="cn">Job Title</label><input type="text" class="inputs" required>
-									<label class="labels" for="cn">Contact Number</label><input type="number" class="inputs" required>
-									<label class="labels" for="email">Email</label><input type="email" class="inputs" required>
+								<form action="/registerSpeaker" method="POST">
+									<label class="labels" for="firstname">First Name</label><input id="firstname" name="firstname" type="text" class="inputs" required>
+									<label class="labels" for="lastname">Last Name</label><input id="lastname" name="lastname" type="text" class="inputs" required>
+									<label class="labels" for="username">Username</label><input id="username" name="username" type="text" class="inputs" required>
+									<label class="labels" for="password">Password</label><input id="password" name="password" type="password" class="inputs" required>
+									<label class="labels" for="age">Age</label><input type="text" class="inputs" name="age" required>
+									<label class="labels" for="jobtitle">Job Title</label><input id="jobtitle" name="jobtitle" type="text" class="inputs" required>
+									<label class="labels" for="cn">Contact Number</label><input type="text" name="contactnumber" class="inputs" required>
+									<label class="labels" for="email">Email</label><input type="email" name="email" class="inputs" required>
 									<br>	
 									<center>	
 									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Submit</button>
+									<button type="submit" class="btn btn-primary">Submit</button>
 									</center>	
 								</form>
 							</div>

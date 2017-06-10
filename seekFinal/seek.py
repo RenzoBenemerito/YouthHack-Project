@@ -28,49 +28,15 @@ def registerSpeaker():
     getemail = request.form['email']
     getage = request.form['age']
     getjobtitle=request.form['jobtitle']
-
-
-    return "<h1>Register Speaker</h1>"
-
-
-# @seek.route('/registerAsSpeaker', methods=['GET', 'POST'])
-# def register():
-#     form = RegisterSpeaker(request.form)
-#     if request.method == 'POST' and form.validate():
-#         first_name = form.first_name.data
-#         last_name = form.last_name.data
-#         username = form.username.data
-#         password = form.password.data
-#         email = form.email.data
-#         age = form.age.data
-#         contact_number = form.contact_number.data
-#         job_title = form.job_title.data
-#
-#         cur = mysql.connection.cursor()
-#         cur.execute('INSERT INTO user_account(username, password) VALUES (%s, %s)', (username, password))
-#         cur.execute('INSERT INTO user_speakers(first_name, last_name, age, job_title, contact_number, email) '
-#                     'VALUES (%s, %s, %d, %s, %s, %s)', (first_name, last_name, age, job_title, contact_number, email))
-#         mysql.connection.commit()
-#         cur.close()
-#         return render_template('register.html')
-#     else:
-#         return render_template('register.html')
-#     return render_template('register.html')
-#
-# class RegisterSpeaker(Form):
-#     first_name = StringField('First Name', [validators.Length(min=1, max=30)])
-#     last_name = StringField('Last Name', [validators.Length(min=1, max=30)])
-#     username = StringField('Username', [validators.Length(min=4, max=30)])
-#     password = PasswordField('Password', [
-#         validators.Length(min=6, max=30),
-#         validators.DataRequired(),
-#         validators.EqualTo('confirm')
-#     ])
-#     confirm = PasswordField('Confirm Password')
-#     email = StringField('Email', [validators.length(min=6, max=30)])
-#     age = IntegerField('Age')
-#     contact_number = StringField('Contact Number', [validators.length(min=5, max=11)])
-#     job_title = StringField('Job Title', [validators.length(min=6, max=30)])
+    getcontactnumber = request.form['contactnumber']
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO user_speakers(first_name,last_name,age,job_title,contact_number,email) "
+                   "VALUES('{}','{}',{},'{}','{}','{}')".format(getfirstname,getlastname,getage,getjobtitle, getcontactnumber,getemail))
+    conn.commit()
+    cursor.execute("INSERT INTO user_account(username,password) VALUES ('{}','{}')".format(getusername,getpassword))
+    conn.commit()
+    return "<h1>Registered Speaker</h1>"
 
 @seek.route('/createAccount',methods=['POST'])
 def createAccount():
