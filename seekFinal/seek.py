@@ -43,7 +43,14 @@ def registerOrg():
     getemail = request.form['email']
     getcontact = request.form['contact']
     getorgname = request.form['orgname']
-    return "Hello!"
+    getrep = request.form['representative']
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.callproc('usp_registerOrg', (getorgname, getcontact, getrep, getemail, getusername, getpassword))
+
+
+    return "<h1>Registered Organization</h1>"
 
 @seek.route('/loginAccount',methods=['POST'])
 def createAccount():
