@@ -36,6 +36,10 @@ def registerSpeaker():
     conn.commit()
     return "<h1>Registered Speaker</h1>"
 
+@seek.route('/registerOrg',methods=['POST'])
+def registerOrg():
+
+
 @seek.route('/loginAccount',methods=['POST'])
 def createAccount():
     if request.method=='POST':
