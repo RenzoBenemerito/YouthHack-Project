@@ -1,7 +1,7 @@
 import flask
 from flask import render_template, request, json, redirect, session
-#from flask.ext.mysql import MySQL
 from flaskext.mysql import MySQL
+from wtforms import Form, StringField, PasswordField, validators
 from werkzeug.security import generate_password_hash, check_password_hash
 
 mysql = MySQL()
@@ -17,31 +17,48 @@ mysql.init_app(seek)
 
 @seek.route('/')
 def main():
-    return render_template('index.html',message="")
+    return render_template('index.html')
 
-@seek.route('/register')
-def register():
-    return render_template('')
+@seek.route('/registerSpeaker',methods=['POST'])
+def registerSpeaker():
+    getfirstname=request.form['firstname']
+    getlastname = request.form['lastname']
+    getusername = request.form['username']
+    getpassword = request.form['password']
+    getemail = request.form['email']
+    getage = request.form['age']
+    getjobtitle = request.form['jobtitle']
+    getcontactnumber = request.form['contactnumber']
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.callproc('usp_registerSpeaker',
+                    (getfirstname,getlastname,getage,getjobtitle,getcontactnumber,getemail,getusername,getpassword))
+    conn.commit()
+    return "<h1>Registered Speaker</h1>"
 
-@seek.route('/createAccount',methods=['POST'])
+@seek.route('/loginAccount',methods=['POST'])
 def createAccount():
     if request.method=='POST':
         getusername = request.form['username']
         getpassword = request.form['password']
+        print(getusername,getpassword)
         conn=mysql.connect()
         cursor=conn.cursor()
-        cursor.execute("SELECT user_username FROM user_account WHERE user_username='{}' AND user_password='{}'"
+        cursor.execute("SELECT COUNT(user_username) FROM user_account WHERE user_username='{}' AND user_password='{}'"
                        .format(getusername,getpassword))
         data=cursor.fetchone()
-        if(len(data)!=1):
+        print(data)
+        if(data[0]==1):
             session['logged_in']=True
             session['user']=getusername
-            return redirect("/")
+            return "Success!"
         else:
             return render_template('error.html',message="The username or password does not match any record!")
         
     else:
         return abort(401)
+
+
 
 if __name__ == '__main__':
     seek.run(debug=True)
