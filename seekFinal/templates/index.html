@@ -41,12 +41,12 @@
 									<a href="#menu" class="menuToggle"><span>Log-In</span></a>
 									<div id="menu">
 										<h1 id="loginLabel">Log-In</h1>
-										<form action="" id="logInForm">
-											<input type="text" required> 
+										<form action="/loginAccount" id="logInForm" method="POST">
+											<input name="username" type="text" required>
 											<br>
-											<input type="password" required>
+											<input name="password" type="password" required>
 											<br>
-											<button class="button special">Log-In</button>
+											<button type="submit" class="button special">Log-In</button>
 										</form>
 									</div>
 								</li>

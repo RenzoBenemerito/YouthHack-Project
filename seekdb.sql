@@ -12,11 +12,13 @@ CREATE PROCEDURE usp_registerSpeaker (
     IN pass VARCHAR(45)
 )
 BEGIN
+	DECLARE id INT;
 	INSERT INTO user_account(user_username,user_password) VALUES (username,pass);
 	SET id = (SELECT user_id FROM user_account WHERE user_username=username);
-    INSERT INTO user_speakers(user_id,first_name,last_name,age,jobtitle,email,contact)
+    INSERT INTO user_speakers(user_id,first_name,last_name,age,job_title,email,contact_number)
     VALUES (id,fname,lname,age,jobtitle,contact,email);
 	
 	
 END //
 DELIMITER ;
+
