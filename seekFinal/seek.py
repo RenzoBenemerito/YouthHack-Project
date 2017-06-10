@@ -26,10 +26,22 @@ def register():
 @seek.route('/createAccount',methods=['POST'])
 def createAccount():
     if request.method=='POST':
-        # request.form['username']
-        pass
+        getusername = request.form['username']
+        getpassword = request.form['password']
+        conn=mysql.connect()
+        cursor=conn.cursor()
+        cursor.execute("SELECT COUNT(user_username) FROM user_account WHERE user_username='{}' AND user_password='{}'"
+                       .format(getusername,getpassword))
+        data=cursor.fetchone()
+        print(data)
+        if(data==1):
+            session['user']=getusername
+            return redirect("/")
+        else:
+            return "<h1>Login failed!</h1>"
+        
     else:
-        request.method(401)
+        return abort(401)
 
 if __name__ == '__main__':
     seek.run(debug=True)
