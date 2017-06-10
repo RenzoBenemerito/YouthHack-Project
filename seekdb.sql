@@ -22,3 +22,23 @@ BEGIN
 END //
 DELIMITER ;
 
+DELIMITER //
+CREATE PROCEDURE usp_registerOrg (
+	IN orgname VARCHAR(45),
+    IN contact VARCHAR(45),
+    IN representative VARCHAR(45),
+    IN email VARCHAR(45),
+    IN username VARCHAR(45),
+    IN pass VARCHAR(45)
+)
+BEGIN
+	DECLARE id INT;
+	INSERT INTO user_account(user_username,user_password) VALUES (username,pass);
+	SET id = (SELECT user_id FROM user_account WHERE user_username=username);
+    INSERT INTO user_organizations(user_account_user_id,organization_name,contact_number,representative,email,username,pass)
+    VALUES (id,orgname,contact,representative,email,username,pass);
+	
+	
+END //
+DELIMITER ;
+
