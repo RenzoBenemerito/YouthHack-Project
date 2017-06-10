@@ -10,7 +10,7 @@ class user_account(models.Model):
         return self.username
 
 class user_speaker(models.Model):
-    user_id=models.ForeignKey(user_account)
+    user_id=models.ForeignKey(user_account, on_delete=models.CASCADE)
     first_name=models.CharField(max_length=45)
     last_name=models.CharField(max_length=45)
     age=models.IntegerField(3)
@@ -22,7 +22,7 @@ class user_speaker(models.Model):
         return self.user_id
 
 class user_organization(models.Model):
-    user_id=models.ForeignKey(user_account)
+    user_id=models.ForeignKey(user_account, on_delete=models.CASCADE)
     organization_name=models.CharField(max_length=100, unique=True)
     representative=models.CharField(max_length=100)
     contact_number=models.CharField(max_length=45)
