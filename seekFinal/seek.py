@@ -27,14 +27,12 @@ def registerSpeaker():
     getpassword = request.form['password']
     getemail = request.form['email']
     getage = request.form['age']
-    getjobtitle=request.form['jobtitle']
+    getjobtitle = request.form['jobtitle']
     getcontactnumber = request.form['contactnumber']
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO user_speakers(first_name,last_name,age,job_title,contact_number,email) "
-                   "VALUES('{}','{}',{},'{}','{}','{}')".format(getfirstname,getlastname,getage,getjobtitle, getcontactnumber,getemail))
-    conn.commit()
-    cursor.execute("INSERT INTO user_account(username,password) VALUES ('{}','{}')".format(getusername,getpassword))
+    cursor.callproc('usp_registerSpeaker',
+                    (getfirstname,getlastname,getage,getjobtitle,getcontactnumber,getemail,getusername,getpassword))
     conn.commit()
     return "<h1>Registered Speaker</h1>"
 
