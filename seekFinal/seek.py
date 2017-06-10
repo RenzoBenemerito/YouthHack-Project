@@ -17,13 +17,7 @@ mysql.init_app(seek)
 
 @seek.route('/')
 def main():
-    return render_template('')
-
-@seek.route('/login')
-def login():
     return render_template('index.html')
-
-
 
 @seek.route('/register')
 def register():
