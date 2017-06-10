@@ -17,7 +17,7 @@ mysql.init_app(seek)
 
 @seek.route('/')
 def main():
-    return render_template('index.html')
+    return render_template('index.html',message="")
 
 @seek.route('/register')
 def register():
@@ -33,12 +33,12 @@ def createAccount():
         cursor.execute("SELECT COUNT(user_username) FROM user_account WHERE user_username='{}' AND user_password='{}'"
                        .format(getusername,getpassword))
         data=cursor.fetchone()
-        print(data)
-        if(data==1):
+        if(len(data)==1):
+            session['logged_in']=True
             session['user']=getusername
             return redirect("/")
         else:
-            return "<h1>Login failed!</h1>"
+            return render_template('error.html',message="The username or password does not match any record!")
         
     else:
         return abort(401)
