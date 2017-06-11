@@ -75,7 +75,7 @@ def createAccount():
         if(data[0]==1):
             session['logged_in']=True
             session['user']=getusername
-            return render_template("../Admin html/index.html")
+            return render_template("/Admin html/index.html")
         else:
             return render_template('error.html',message="The username or password does not match any record!")
     else:

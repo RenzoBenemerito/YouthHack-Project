@@ -37,9 +37,9 @@
 									<div id="menu">
 										<h1 id="loginLabel">Log-In</h1>
 										<form action="/loginAccount" id="logInForm" method="POST">
-											<input type="text" required> 
+											<input type="text" name="username" required> 
 											<br>
-											<input type="password" required>
+											<input type="password" name="password" required>
 											<br>
 											<button type="submit" class="button special">Log-In</button>
 										</form>
@@ -250,26 +250,23 @@
 							</div>
 							<div class="modal-body container-fluid">
 								<form action="/registerSpeaker" method="POST">
-									<label class="labels" for="firstname">First Name</label><input id="firstname" name="firstname" type="text" class="inputs" placeholder="First Name" required>
-									<label class="labels" for="lastname">Last Name</label><input id="lastname" name="lastname" type="text" class="inputs" placeholder="Last Name" required>
-									<label class="labels" for="username1">Username</label><input id="username1" name="username" type="text" class="inputs" placeholder="Username" required>
+									<label class="labels" for="firstname">First Name</label><input id="firstname" name="firstname" type="text" class="inputs" required>
+									<label class="labels" for="lastname">Last Name</label><input id="lastname" name="lastname" type="text" class="inputs" required>
+									<label class="labels" for="username1">Username</label><input id="username1" name="username" type="text" class="inputs" required>
 									<label class="labels" for="userpassword">Password</label><input id="userpassword" name="password" type="password" class="inputs" required>
-									<label class="labels" for="age">Age</label><input id="age" type="text" class="inputs" name="age" placeholder="Holder" required>
-									<label class="labels" for="jobtitle">Job Title</label><input id="jobtitle" name="jobtitle" type="text" class="inputs" placeholder="Job Title" required>
-									<label class="labels">Contact Number</label><input type="text" name="contactnumber" class="inputs" placeholder="Contact Number" required>
-									<label class="labels" for="email">Email</label><input type="email" name="email" class="inputs" placeholder="Email Address" required>
-									<br>
-									<div class="form-group">
+									<label class="labels" for="age">Age</label><input id="age" type="text" class="inputs" name="age" required>
+									<label class="labels" for="jobtitle">Job Title</label><input id="jobtitle" name="jobtitle" type="text" class="inputs" required>
+									<label class="labels">Contact Number</label><input type="text" name="contactnumber" class="inputs" required>
+									<label class="labels" for="email">Email</label><input type="email" name="email" class="inputs" required>
 									<label class="labels" for="category">Category</label>
-									<select name="category" class="form-control" id="category" aria-describedby="categoryhelp">
+									<div class="form-group">
+									<select class="form-control" id="category">
 									  <option>Coding</option>
 									  <option>Music</option>
-									  <option>Acting</option>
+									  <option>Artist</option>
 									</select>
-									<small id="categoryhelp" class="form-text text-muted">Categories will specify the target audience you specialize in speaking to.</small>
 								  	</div>
-									<br>
-									<center>	
+									<center>
 									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 									<button type="submit" class="btn btn-primary">Submit</button>
 									</center>	
