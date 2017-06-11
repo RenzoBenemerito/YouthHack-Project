@@ -29,14 +29,21 @@ def registerSpeaker():
     getage = request.form['age']
     getjobtitle = request.form['jobtitle']
     getcontactnumber = request.form['contactnumber']
-    conn = mysql.connect()
+    getcategory = request.form['category']
+    if(getcategory=="Coding"):
+        getcategory=1
+    elif(getcategory=="Music"):
+        getcategory=2
+    elif(getcategory=="Artist"):
+        getcategory=3
+    conn=mysql.connect()
     cursor = conn.cursor()
     cursor.callproc('usp_registerSpeaker',
-                    (getfirstname,getlastname,getage,getjobtitle,getcontactnumber,getemail,getusername,getpassword))
+                    (getfirstname,getlastname,getage,getjobtitle,getcontactnumber,getemail,getcategory,getusername,getpassword))
     conn.commit()
     cursor.close()
     conn.close()
-    return "<h1>Registered Speaker</h1>"
+    return redirect("/")
 
 @seek.route('/registerOrg',methods=['POST'])
 def registerOrg():
@@ -53,24 +60,22 @@ def registerOrg():
     conn.commit()
     cursor.close()
     conn.close()
-    return "<h1>Registered Organization</h1>"
+    return redirect("/")
 
 @seek.route('/loginAccount',methods=['POST'])
 def createAccount():
     if request.method=='POST':
         getusername = request.form['username']
         getpassword = request.form['password']
-        print(getusername,getpassword)
         conn=mysql.connect()
         cursor=conn.cursor()
         cursor.execute("SELECT COUNT(user_username) FROM user_account WHERE user_username='{}' AND user_password='{}'"
                        .format(getusername,getpassword))
         data=cursor.fetchone()
-        print(data)
         if(data[0]==1):
             session['logged_in']=True
             session['user']=getusername
-            return "Success!"
+            return render_template("../Admin html/index.html")
         else:
             return render_template('error.html',message="The username or password does not match any record!")
     else:
