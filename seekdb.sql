@@ -35,10 +35,11 @@ BEGIN
 	DECLARE id INT;
 	INSERT INTO user_account(user_username,user_password) VALUES (username,pass);
 	SET id = (SELECT user_id FROM user_account WHERE user_username=username);
-    INSERT INTO user_organizations(user_account_user_id,organization_name,contact_number,representative,emails)
+    INSERT INTO user_organizations(user_account_user_id,organization_name,contact_number,representative,email)
     VALUES (id,orgname,contact,representative,email);
 	
 	
 END //
 DELIMITER ;
 
+# DROP PROCEDURE usp_registerOrg;

@@ -196,17 +196,17 @@
 								<h4 class="modal-title" style="color:black !important">Sign-Up</h4>
 							</div>
 							<div class="modal-body container-fluid">
-								<form action="" method="POST">
-									<label class="labels" for="username">Username</label><input id="username" type="text" class="inputs" required>
-									<label class="labels" for="password">password</label><input id="password" type="password" class="inputs" required>
-									<label class="labels" for="email">email</label><input id="email" type="email" class="inputs" required>
-									<label class="labels" for="cn">Contact Number</label><input id="cn" type="number" class="inputs" required>
-									<label class="labels" for="">Organization Name</label><input id="" type="text" class="inputs" required>
-									<label class="labels" for=""></label><input type="text" class="inputs" required>
+								<form action="/registerOrg" method="POST">
+									<label class="labels" for="username">Username</label><input id="username" name="username" type="text" class="inputs" required>
+									<label class="labels" for="password">password</label><input id="password" name="password" type="password" class="inputs" required>
+									<label class="labels" for="email">email</label><input id="email" name="email" type="email" class="inputs" required>
+									<label class="labels" for="cn">Contact Number</label><input id="cn" name="contact" type="number" class="inputs" required>
+									<label class="labels" for="">Organization Name</label><input id="" name="orgname" type="text" class="inputs" required>
+									<label class="labels" for="">Representative</label><input name="representative" type="text" class="inputs" required>
 									<br>	
 									<center>
 									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Submit</button>
+									<button type="submit" class="btn btn-primary">Submit</button>
 									</center>	
 								</form>
 							</div>
