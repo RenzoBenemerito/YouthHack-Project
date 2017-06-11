@@ -56,8 +56,6 @@ def registerOrg():
     return "<h1>Registered Organization</h1>"
 
 @seek.route('/loginAccount',methods=['POST'])
-
-@seek.route('/createAccount',methods=['POST'])
 def createAccount():
     if request.method=='POST':
         getusername = request.form['username']
@@ -77,7 +75,7 @@ def createAccount():
             return render_template('error.html',message="The username or password does not match any record!")
     else:
         return abort(401)
-    
+
     cursor.close()
     conn.close()
 
