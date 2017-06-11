@@ -3863,11 +3863,17 @@ a{
 	color: black !important;
 }
 .carousel1{
+	border-image: stretch;
 	height: 400px !important;
-	max-height: 50% !important;
 	width: 529px !important;
 }
 #carousel-example-generic{
 	width: 529px !important;
 	height: 400px !important;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+
+   opacity: 0;
+
 }
