@@ -39,7 +39,7 @@ def registerSpeaker():
     conn=mysql.connect()
     cursor = conn.cursor()
     cursor.callproc('usp_registerSpeaker',
-                    (getfirstname,getlastname,getage,getjobtitle,getcontactnumber,getemail,getcategory,getusername,getpassword))
+      (getfirstname,getlastname,getusername,getpassword,getemail,getage,getcontactnumber,getjobtitle,getcategory))
     conn.commit()
     cursor.close()
     conn.close()

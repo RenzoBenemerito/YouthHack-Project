@@ -16,7 +16,7 @@ CREATE PROCEDURE usp_registerSpeaker (
 )
 BEGIN
 	DECLARE id int;
-	INSERT INTO user_account(username,password) VALUES 
+	INSERT INTO user_account(user_username,user_password) VALUES 
     (username,pass);
     SET id=(SELECT user_id FROM user_account WHERE 
     user_username=username);
