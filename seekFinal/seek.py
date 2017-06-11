@@ -1,7 +1,6 @@
 import flask
 from flask import render_template, request, json, redirect, session
 from flaskext.mysql import MySQL
-from wtforms import Form, StringField, PasswordField, validators
 from werkzeug.security import generate_password_hash, check_password_hash
 
 mysql = MySQL()
@@ -9,8 +8,8 @@ seek = flask.Flask(__name__)
 seek.secret_key = 'a02304jire0942jitn092jf039ejinsifgj20j9ei0934runifjldkn-sdkjn'
 
 # MySQL configurations
-seek.config['MYSQL_DATABASE_USER'] = 'royce'
-seek.config['MYSQL_DATABASE_PASSWORD'] = '261523'
+seek.config['MYSQL_DATABASE_USER'] = 'root'
+seek.config['MYSQL_DATABASE_PASSWORD'] = ''
 seek.config['MYSQL_DATABASE_DB'] = 'seekdb'
 seek.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(seek)
