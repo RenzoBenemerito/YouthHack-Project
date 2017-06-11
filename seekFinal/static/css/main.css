@@ -3862,9 +3862,12 @@ a{
 	min-height: 50% !important;
 	color: black !important;
 }
-.carousel{
-	min-height: 50% !important;
-	height: 50% !important;
+.carousel1{
+	height: 400px !important;
 	max-height: 50% !important;
 	width: 529px !important;
+}
+#carousel-example-generic{
+	width: 529px !important;
+	height: 400px !important;
 }

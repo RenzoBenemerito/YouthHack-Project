@@ -91,26 +91,26 @@
 							<div class="image">
 								<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 								<!-- Indicators -->
-								<ol class="carousel-indicators">
-									<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-									<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-									<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-								</ol>
+									<ol class="carousel-indicators">
+										<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+										<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+										<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+									</ol>
 
 								<!-- Wrapper for slides -->
 								<div class="carousel-inner" role="listbox">
 									<div class="item active">
-									<img src="../static/images/pic01.jpg" height="748" width="529" alt="...">
+									<img src="../static/images/pic01.jpg" class="carousel1" alt="...">
 									<div class="carousel-caption">
 									</div>
 									</div>
 									<div class="item">
-									<img src="../static/images/pic02.jpg" height="748" width="529" alt="...">
+									<img src="../static/images/pic02.jpg" class="carousel1" alt="...">
 									<div class="carousel-caption">
 									</div>
 									</div>
 									<div class="item">
-									<img src="../static/images/pic031.old.jpg" height="748" width="529" alt="...">
+									<img src="../static/images/pic031.old.jpg" class="carousel1" alt="...">
 									<div class="carousel-caption">
 									</div>
 									</div>
@@ -134,8 +134,8 @@
 							</div>
 						</section>
 						<section class="spotlight">
-							<div class="image"><img src="../static/images/pic02.jpg" alt="" /></div><div class="content">
-								<h2>Guarantee Secure</h2>
+							<div class="image"><img src="../static/images/lock.png" alt="" height="300" width="200" /></div><div class="content">
+								<h2>Guaranteed Secure</h2>
 								<p><strong><em>Speaker</em></strong> assures the Customer, Speakers and Artists that they will negotiate in a secured way</p>
 							</div>
 						</section>
@@ -188,12 +188,11 @@
 					<section id="cta" class="wrapper style4">
 						<div class="inner">
 							<header>
-								<h2>Arcue ut vel commodo</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum endrerit imperdiet amet eleifend fringilla.</p>
+								<h2>What are you waiting for?</h2>
+								<p>Sign-up now and let your talents be known.</p>
 							</header>
 							<ul class="actions vertical">
-								<li><a href="#" class="button fit special">Activate</a></li>
-								<li><a href="#" class="button fit">Learn More</a></li>
+								<li><a href="#page-wrapper" class="more scrolly button fit">Back to Top</a></li>
 							</ul>
 						</div>
 					</section>
@@ -282,4 +281,9 @@
 			<script src="../static/js/main.js"></script>
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</body>
+	<script>
+		$('.carousel').carousel({
+  			interval: 5000
+		});
+	</script>
 </html>
