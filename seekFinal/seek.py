@@ -18,6 +18,14 @@ mysql.init_app(seek)
 def main():
     return render_template('index.html')
 
+@seek.route('/dashboard')
+def dashboard():
+    return render_template('/Admin html/index.html')
+
+@seek.route('/tables')
+def table():
+    return render_template('/Admin html/tables.html',name=session['user'])
+
 @seek.route('/registerSpeaker',methods=['POST'])
 def registerSpeaker():
     getfirstname=request.form['firstname']
@@ -74,7 +82,7 @@ def createAccount():
         if(data[0]==1):
             session['logged_in']=True
             session['user']=getusername
-            return render_template("/Admin html/index.html")
+            return render_template("/Admin html/index.html",name=session['user'])
         else:
             return render_template('error.html',message="The username or password does not match any record!")
     else:
@@ -83,6 +91,10 @@ def createAccount():
     cursor.close()
     conn.close()
 
+@seek.route('/logout')
+def logout():
+    session.pop
+    return redirect('/')
 
 if __name__ == '__main__':
     seek.run(debug=True)

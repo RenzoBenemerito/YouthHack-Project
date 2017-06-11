@@ -58,7 +58,7 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        <h5 class="media-heading"><strong>{{ name }}</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -142,7 +142,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -151,13 +151,13 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="index.html"><i class="fa fa-fw fa-bar-chart"></i> Top Chart!</a>
+                        <a href="/dashboard"><i class="fa fa-fw fa-bar-chart"></i> Top Chart!</a>
                     </li>
                     <!--<li>
                         <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
                     </li>-->
                     <li class="active">
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Categories!</a>
+                        <a href="/tables"><i class="fa fa-fw fa-table"></i> Categories!</a>
                     </li>
                   <!--  <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
@@ -218,11 +218,20 @@
                <h1>Choose a category </h1>
 
              </header>
+             
              <section class="tiles">
                <article class="style1">
-                 <span class="image">
+                   <div class="row">
+  <div class="col-xs-6 col-md-3">
+    <a href="#" class="thumbnail">
+     
                    <img src="../../static/js/JSCSS/images/prog.jpg" alt="" />
-                 </span>
+                
+    </a>
+  </div>
+  ...
+</div>
+                 
                  <a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">
                    <h2>Coding</h2>
                    <div class="content">
@@ -231,9 +240,17 @@
                  </a>
                </article>
                <article class="style2">
-                 <span class="image">
+                   <div class="row">
+  <div class="col-xs-6 col-md-3">
+    <a href="#" class="thumbnail">
+      
                    <img src="../../static/js/JSCSS/images/music.jpg" alt="" />
-                 </span>
+                
+    </a>
+  </div>
+  ...
+</div>
+                
                  <a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">
                    <h2>Music</h2>
                    <div class="content">
@@ -242,9 +259,17 @@
                  </a>
                </article>
                <article class="style3">
-                 <span class="image">
+                   <div class="row">
+  <div class="col-xs-6 col-md-3">
+    <a href="#" class="thumbnail">
+     
                    <img src="../../static/js/JSCSS/images/actors2.jpg" alt="" />
-                 </span>
+                
+    </a>
+  </div>
+  ...
+</div>
+                
                  <a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">
                    <h2>Actors</h2>
                    <div class="content">
@@ -388,7 +413,7 @@
          <div class="modal-content">
            <div class="modal-header">
              <button type="button" id="closeIcon" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-             <h4 class="modal-title">Modal title</h4>
+             <h4 class="modal-title">Speakers</h4>
            </div>
            <div class="modal-body">
              ...
