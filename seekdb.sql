@@ -19,7 +19,6 @@ BEGIN
 	
 	
 END //
-<<<<<<< HEAD
 DELIMITER ;
 
 DELIMITER //
@@ -43,6 +42,3 @@ END //
 DELIMITER ;
 
 # DROP PROCEDURE usp_registerOrg;
-=======
-DELIMITER ;
->>>>>>> f91a6bcda4c5a29558a97c4547e3bf6b5f323155
