@@ -34,6 +34,8 @@ def registerSpeaker():
     cursor.callproc('usp_registerSpeaker',
                     (getfirstname,getlastname,getage,getjobtitle,getcontactnumber,getemail,getusername,getpassword))
     conn.commit()
+    cursor.close()
+    conn.close()
     return "<h1>Registered Speaker</h1>"
 
 @seek.route('/registerOrg',methods=['POST'])
@@ -48,11 +50,14 @@ def registerOrg():
     conn = mysql.connect()
     cursor = conn.cursor()
     cursor.callproc('usp_registerOrg', (getorgname, getcontact, getrep, getemail, getusername, getpassword))
-
-
+    conn.commit()
+    cursor.close()
+    conn.close()
     return "<h1>Registered Organization</h1>"
 
 @seek.route('/loginAccount',methods=['POST'])
+
+@seek.route('/createAccount',methods=['POST'])
 def createAccount():
     if request.method=='POST':
         getusername = request.form['username']
@@ -70,10 +75,11 @@ def createAccount():
             return "Success!"
         else:
             return render_template('error.html',message="The username or password does not match any record!")
-        
     else:
         return abort(401)
-
+    
+    cursor.close()
+    conn.close()
 
 
 if __name__ == '__main__':
