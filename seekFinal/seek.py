@@ -24,7 +24,7 @@ def dashboard():
 
 @seek.route('/tables')
 def table():
-    return render_template('/Admin html/tables.html',name=session['user'])
+    return render_template('/Admin html/tables.html',name=session.get['user'])
 
 @seek.route('/registerSpeaker',methods=['POST'])
 def registerSpeaker():
